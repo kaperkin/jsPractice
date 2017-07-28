@@ -24,9 +24,31 @@
     console.log(abce);
     $('#abceOutput').append("<p>Should return 'd' Return: " + abce + "<p>");
     $('#abcdefghjklmnoOutput').append("<p>Should return 'i' Return: " + abcdefghjklmno + "<p>");
-
   })
-
   //END MISSING letters
-  
+
+
+      /* Boo Who
+      Check if a value is classified as a boolean primitive. Return true or false.
+  Boolean primitives are true and false.*/
+function booWho(bool){
+if(new Boolean(bool)){
+  bool = true
+} else {
+  bool = false
+}
+var test = new Boolean(bool);
+return test
+}
+
+$('#booWho').click(function(){
+  var testTrue = booWho(true);
+  var testArray = booWho([1,2,3]);
+  $('#booWhoOutput').append("<p>Should return 'true' Return: " + testTrue + "<p>");
+  $('#booWhoOutput').append("<p>Should return 'false' Return: " + testArray + "<p>");
+})
+
+
+  // END BOO WHO
+
 }(jQuery));
