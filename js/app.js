@@ -32,13 +32,13 @@
       Check if a value is classified as a boolean primitive. Return true or false.
   Boolean primitives are true and false.*/
 function booWho(bool){
-if(new Boolean(bool)){
-  bool = true
-} else {
-  bool = false
-}
-var test = new Boolean(bool);
-return test
+  var isIt;
+   if(bool===true || bool===false){
+     isIt = true;
+   } else {
+     isIt = false;
+   }
+   return isIt;
 }
 
 $('#booWho').click(function(){
@@ -47,8 +47,34 @@ $('#booWho').click(function(){
   $('#booWhoOutput').append("<p>Should return 'true' Return: " + testTrue + "<p>");
   $('#booWhoOutput').append("<p>Should return 'false' Return: " + testArray + "<p>");
 })
-
-
   // END BOO WHO
+
+/* BEGIN Sorted Union
+Write a function that takes two or more arrays and returns a new array of unique
+values in the order of the original provided arrays.
+In other words, all values present from all arrays should be included in their
+original order, but with no duplicates in the final array.
+The unique numbers should be sorted by their original order, but the final array
+should not be sorted in numerical order.
+*/
+function uniteUnique(arr) {
+  var newArr = [];
+  for(var i=0; i<arguments.length; i++){
+    for(var a=0; a<arguments[i].length; a++){
+      if(newArr.indexOf(arguments[i][a])==-1){
+        newArr.push(arguments[i][a]);
+      }
+    }
+  }
+  return newArr;
+}
+
+$('#sortedUnion').click(function(){
+  var test = uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+  $('#sortedUnionOutput').append("<p>Should return [1,3,2,5,4] Return: " + test + "<p>");
+})
+
+
+// END SORTED UNION
 
 }(jQuery));
